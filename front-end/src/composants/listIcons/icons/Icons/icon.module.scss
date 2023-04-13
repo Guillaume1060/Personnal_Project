@@ -1,0 +1,11 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixin";
+
+.icon {
+    margin: 1rem;
+    color:$ligh-text-color;
+}
+
+.iconUp {
+    @include getBack()
+}

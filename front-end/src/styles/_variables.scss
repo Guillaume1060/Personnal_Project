@@ -1,0 +1,31 @@
+// COLORS
+$ligh-text-color: rgb(224,224,213); // +bcg about page
+$medium-text-color: rgb(122,109,78); // About page + bcg videoPage
+$video-text-color: rgb(236,190,180); 
+
+$concert-bcg-color: rgb(100,148,170); 
+$concert-text-color: rgb(236,235,228); 
+
+$store-bcg-color: rgb(33,1,36); 
+$store-text-color: rgb(196,167,125);
+
+$footer-text-color: rgb(33,41,34); 
+
+
+// Titre
+@font-face {
+    font-family: 'Forum';
+    src: local('Forum'), url(../styles/fonts/Forum-Regular.ttf) format('truetype');
+  }
+
+// Sous-titre
+  @font-face {
+    font-family: 'JosefinSans';
+    src: local('JosefinSans'), url(../styles/fonts/JosefinSans-Regular.ttf) format('truetype');
+  }
+
+// Texte
+  @font-face {
+    font-family: 'TiltNeon';
+    src: local('TiltNeon'), url(../styles/fonts/TiltNeon-Regular.ttf) format('truetype');
+  }

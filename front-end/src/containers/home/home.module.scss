@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.ctn {
+    background-image: url(../../assets/img/vynil.jpg);
+    background-repeat: no-repeat; 
+    background-attachment:scroll; 
+    background-size: cover;
+    margin-top: -2rem;
+    height: 100vh;
+}
+
+.title {
+    color: $ligh-text-color;
+    font-family: Forum;
+    text-align: center;
+    font-size: 9rem;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+}
+
+.heading {
+    margin-bottom: 18rem;
+    text-align: center;
+    font-family: JosefinSans;
+    &_main {
+        margin-bottom: 1rem;
+        display: block;
+        font-size: 4rem;
+        color: $ligh-text-color;
+        /* letter-spacing: 2.5rem; */
+    }
+    &_sub {
+        display: block;
+        font-size: 2rem;
+        letter-spacing: 1.7rem;
+        color: $ligh-text-color;
+        /* font-weight: 700; */
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 3rem; left: 0; right: 0
+}
+

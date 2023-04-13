@@ -1,0 +1,51 @@
+@import "../../styles/variables";
+
+
+.nav_box {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.nav_box__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2rem;
+}
+
+.nav_box__list__title {
+    color: $ligh-text-color;
+    font-family: forum;
+    text-decoration: none;
+    font-size: 2.5rem;
+}
+
+.nav_box__cart {
+    font-size: 5rem;
+}
+
+// CART -> A METTRE EN PLACE
+.cart_nav__icon_box {
+    position: relative; }
+  .cart_nav__icon {
+    margin-top: 0.5rem;
+    margin-right: .5rem;
+    height: 6.25rem;
+    width: 6.25rem;
+    fill: $ligh-text-color; }
+  .cart_nav__notification {
+    font-size: 1.2rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: 4.5rem;
+    right: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }

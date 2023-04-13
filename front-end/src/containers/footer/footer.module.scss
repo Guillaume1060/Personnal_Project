@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.ctn {
+    background-image: url(../../assets/img/k7.jpg);
+    background-repeat: no-repeat; 
+    background-attachment:scroll; 
+    background-size: cover;
+    margin-top: -2rem;
+    height: 100vh;
+    position: relative;
+}
+
+.footer {
+    gap: 2rem;
+
+    &_title {
+        h2 {
+            padding-top: 5rem;
+            text-align: center;
+            @include title-page($footer-text-color)
+        }    
+        p {
+            font-size: 2.5rem;
+            font-family: TiltNeon;
+            text-align: center;
+            color: $footer-text-color;
+        }
+    }
+    
+    form {
+        text-align: center;
+    }
+    button {
+            background-color: $footer-text-color;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 6rem;
+            border-radius: 50%;   
+    }
+
+    &_input {
+        width: 80%;
+        text-align: center;
+        font-size: 6rem;
+        font-family: TiltNeon;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px $footer-text-color solid;
+        &:focus {
+            outline: none;
+            border-bottom: 1px black;
+        }
+    }
+} 

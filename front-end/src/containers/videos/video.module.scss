@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.ctn {
+    @include ctn($medium-text-color);
+}
+
+.video {
+    gap: 2rem;
+
+    &_title {
+        h2 {
+            @include title-page($video-text-color)
+        }    
+    }
+    &_videos {
+        margin-top: 8rem;
+        margin-left: 8rem;
+        // text-align: center;
+        // &_1 {
+        //     position: relative;
+        //     width: 100%;
+        //     padding-bottom: 56.25%; 
+        //     height: 0;
+
+        //     iframe {
+        //         position: absolute;
+        //         top:0;
+        //         left: 0;
+        //         width: 100%;
+        //         height: 100%;
+        //     }
+        // }
+        p {
+            font-family: TiltNeon;
+            font-size: 2.5rem;
+            color: $video-text-color;
+        }
+    }
+} 
+

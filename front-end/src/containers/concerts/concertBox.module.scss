@@ -1,0 +1,43 @@
+.ctn {
+    border : 1px solid black;
+    display: flex;
+    align-content: center;
+    width: 40vh;
+    height: 20vh;
+}
+
+
+
+.ticket {
+flex: 1;
+margin-left: .5rem;
+align-self: center;
+text-align:justify;
+
+    &_date {
+        font-size: 2.6rem;
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+    &_venue {
+        font-size: 2.4rem;
+    }
+    &_support {
+        font-size: 1.3rem;
+        margin-bottom: .5rem;
+
+    }
+    &_city {
+        font-size: 1.5rem;
+    }
+}
+
+.ticketLink {
+    align-self: center;
+   text-align: center;
+    flex: 1;
+
+    button {
+        font-size: 2.5rem;
+    }
+}

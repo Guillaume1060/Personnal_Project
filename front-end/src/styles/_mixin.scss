@@ -1,0 +1,28 @@
+
+@mixin ctn ($color) {
+    position: relative;
+    height: 100vh;
+    background-color:$color;
+    padding: 2rem ;
+}
+@mixin title-page($color) {
+    font-size: 12rem;
+    font-family: forum;
+    color: $color;
+}
+
+@mixin getBack() {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    opacity: 0.5;
+    font-size: 8rem;
+}
+
+
+
+
+
+
+
+

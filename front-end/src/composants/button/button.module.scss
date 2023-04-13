@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.ctn {
+    text-align: center;
+}
+
+.btn {
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 60px;
+    font-family: Arial;
+    color: $ligh-text-color;
+    font-size: 40px;
+    background: rgba(224,224,213,0);
+    padding: 10px 25px 10px 25px;
+    border: solid $ligh-text-color 2px;
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    font-family: Martel;
+  }
+/*   
+  .btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  } */

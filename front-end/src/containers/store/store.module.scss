@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.ctn {
+    @include ctn($store-bcg-color);
+}
+
+.store {
+    gap: 2rem;
+
+    &_title {
+        h2{
+            @include title-page($store-text-color)
+        }    
+    }
+} 

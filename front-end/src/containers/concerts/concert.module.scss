@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.ctn {
+    @include ctn($concert-bcg-color);
+}
+.concert {
+    gap: 2rem;
+
+    &_title {
+        h2 {
+            @include title-page($concert-text-color)
+        }    
+    }
+} 
