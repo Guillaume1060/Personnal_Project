@@ -1,5 +1,6 @@
 import classes from './store.module.scss'
 import ArrowUpIcon from '../../composants/listIcons/icons/Icons/ArrowUpIcon'
+import ProductBox from './ProductBox';
 import useAxios from '../../hooks/use-axios';
 
 const Store = () => {
@@ -14,19 +15,17 @@ const Store = () => {
         return <div>Error: {error.message}</div>;
       }
 
+    const productsList = data.data.map(product=><ProductBox id={product.id} key={product.id} name={product.name} description={product.description} price={product.price}/>)
+
     return (
         <div id='store' className={classes.ctn}>
             <ArrowUpIcon/>
             <div className={classes.store}>
                 <div className={classes.store_title}>
                     <h2>STORE</h2>
-                    {data.data.map(product=>(
-                        <>
-                        <p>{product.name}</p>
-                        <p>{product.description}</p>
-                        <p>{product.price}</p>
-                        </>
-                    ))}
+                        <ul className={classes.store_list}>
+                            {productsList}
+                        </ul>
                 </div>
             </div>
         </div>

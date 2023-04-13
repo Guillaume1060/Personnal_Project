@@ -8,3 +8,10 @@ export const addTicket = createAction("cart/addTicket", (concert) => {
     },
   };
 });
+export const addProduct = createAction("cart/addProduct", (product) => {
+  return {
+    payload: {
+      product,
+    },
+  };
+});

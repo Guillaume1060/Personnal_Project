@@ -9,7 +9,6 @@ const ConcertItemForm = (props) => {
     const ticketQuantityRef = useRef()
     const dispatch = useDispatch()
 
-
     const submitHandler = useCallback((e) => {
         e.preventDefault();
         const ticketQuantity = ticketQuantityRef.current.value;

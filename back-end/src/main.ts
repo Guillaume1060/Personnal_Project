@@ -1,11 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import * as dotenv from 'dotenv';
 const cookieSession = require('cookie-session')
 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  dotenv.config();
   app.enableCors({
     origin: '*', // autorise toutes les sources d'accès
     methods: 'GET,POST,PUT,DELETE', // autorise les méthodes HTTP
@@ -17,6 +19,6 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe()
   );
-  await app.listen(5000);
+  await app.listen(process.env.PORT);
 }
 bootstrap();

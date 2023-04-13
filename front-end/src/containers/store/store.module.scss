@@ -2,7 +2,7 @@
 @import "../../styles/mixin";
 
 .ctn {
-    @include ctn($store-bcg-color);
+    @include ctn($concert-bcg-color);
 }
 
 .store {
@@ -12,5 +12,10 @@
         h2{
             @include title-page($store-text-color)
         }    
+    }
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
     }
 } 
