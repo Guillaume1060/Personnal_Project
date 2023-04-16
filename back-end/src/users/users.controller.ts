@@ -13,7 +13,7 @@ export class UsersController {
         private userService : UsersService,
         private authService : AuthService){}
 
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     @Get('/whoami')
     whoAmI(@CurrentUser() user:User) {
       return user
