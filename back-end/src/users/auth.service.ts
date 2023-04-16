@@ -4,8 +4,8 @@ import { scrypt as _scrypt, randomBytes } from "crypto";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dtos/create-user.dto";
 import { AuthUserDto } from "./dtos/auth-user.dto";
-import { JwtService } from "@nestjs/jwt";
-import { JWT_SECRET } from "./constant";
+// import { JwtService } from "@nestjs/jwt";
+// import { JWT_SECRET } from "./constant";
 
 const scrypt = promisify(_scrypt);
 
@@ -13,7 +13,7 @@ const scrypt = promisify(_scrypt);
 export class AuthService {
     constructor(
         private usersService: UsersService,
-        private jwtService: JwtService,
+        // private jwtService: JwtService,
         ) {}
 
     async signUp(newUser : CreateUserDto) {
@@ -50,8 +50,6 @@ export class AuthService {
         // return {
         //     access_token : await this.jwtService.signAsync(payload,{ secret : JWT_SECRET})
         // }
-
-
     }
 }
 

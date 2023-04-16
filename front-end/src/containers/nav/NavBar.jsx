@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import classes from './nav.module.scss'
 import { displayCart } from '../../store/actions/cart.action';
+import { HashLink } from 'react-router-hash-link';
 
 const NavBar = (props) => {
     const itemCartQty = useSelector(state=>state.cart.itemCount)
@@ -12,11 +13,11 @@ const NavBar = (props) => {
     return (
         <div className={classes.nav_box}>
             <div className={classes.nav_box__list}>
-                <a href="#about" className={classes.nav_box__list__title}>ABOUT</a>
-                <a href="#video" className={classes.nav_box__list__title}>VIDEOS</a>
-                <a href="#concert" className={classes.nav_box__list__title}>CONCERTS</a>
-                <a href="#store" className={classes.nav_box__list__title}>STORE</a>
-                <a href="#footer" className={classes.nav_box__list__title}>SUSCRIBE</a>
+                <HashLink smooth to={'/#about'} className={classes.nav_box__list__title}>ABOUT</HashLink>
+                <HashLink smooth to={'/#video'} className={classes.nav_box__list__title}>VIDEOS</HashLink>
+                <HashLink smooth to={'/#concert'} className={classes.nav_box__list__title}>CONCERTS</HashLink>
+                <HashLink smooth to={'/#store'} className={classes.nav_box__list__title}>STORE</HashLink>
+                <HashLink smooth to={'/#footer'} className={classes.nav_box__list__title}>SUSCRIBE</HashLink>
             </div >
             <div class={classes.cart_nav__icon_box}>
                 <svg class={classes.cart_nav__icon}

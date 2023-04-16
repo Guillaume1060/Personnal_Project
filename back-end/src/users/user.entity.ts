@@ -23,6 +23,10 @@ export class User {
     // @Exclude()
     banish: boolean;
 
+    @Column({default:true})
+    admin: boolean;
+
+    // @Column()
     @OneToMany(()=> ProductsOrder,(productOrder)=>productOrder.user)
     productsOrders: ProductsOrder[]
 

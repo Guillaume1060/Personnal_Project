@@ -5,7 +5,7 @@ const store = configureStore({
   reducer: {
     cart: cartReducer,
   },
-  devTools: process.env.NODE_ENV !== "production",
+  // devTools: process.env.NODE_ENV !== "production",
   // middleware : (getDefaultMiddleware) => [...getDefaultMiddleware(), reduxLogger]
 });
 

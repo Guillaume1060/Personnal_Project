@@ -11,7 +11,9 @@ const ConcertItemForm = (props) => {
 
     const submitHandler = useCallback((e) => {
         e.preventDefault();
+        console.log(ticketQuantityRef.current.value);
         const ticketQuantity = ticketQuantityRef.current.value;
+        console.log(ticketQuantity);
         const payLoad = {
             concertId : props.id,
             venue : props.venue,

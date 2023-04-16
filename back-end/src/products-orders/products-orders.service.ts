@@ -11,7 +11,9 @@ import { Product } from 'src/products/product.entity';
 export class ProductsOrdersService {
     constructor(
         @InjectRepository(ProductsOrder) private repo : Repository<ProductsOrder>,
-        @InjectRepository(Product) private repoProduct : Repository<Product>) {}
+        @InjectRepository(Product) private repoProduct : Repository<Product>,
+        // @InjectRepository(User) private repoUser: Repository<User>
+        ) {}
 
 
     async create(ProductOrderDto : CreateProductOrderDto, user:User) {
@@ -22,4 +24,13 @@ export class ProductsOrdersService {
         await this.repoProduct.decrement({id:IdProduct},'stock',quantityBought)
         return this.repo.save(ProductOrder)
     }
+
+    async findAllById(user: User) {
+        console.log(user);
+        let allProductOrdersByUser = await this.repo.find({ where: { user:{id:user.id} },relations: ['products'] })
+        return allProductOrdersByUser
+    }
+
+
+
 }

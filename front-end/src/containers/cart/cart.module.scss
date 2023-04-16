@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .cart-items {
     list-style: none;
     margin: 0;
@@ -43,4 +45,34 @@
   .actions .button {
     background-color: #8a2b06;
     color: white;
+  }
+
+  .title {
+    font-family: forum;
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+  .art {
+  font-family: TiltNeon;
+  font-size: 1.8rem;
+    &_1{
+    font-family: JosefinSans;
+    font-size: 1.5rem;
+    }
+    &_2{
+    font-family: JosefinSans;
+    font-size: 1.1rem;
+    }
+    &_3{
+    font-family: TiltNeon;
+    font-size: 1.4rem;
+    }
+    &_total{
+    font-family: JosefinSans;
+    font-size: 1rem;
+    }
   }

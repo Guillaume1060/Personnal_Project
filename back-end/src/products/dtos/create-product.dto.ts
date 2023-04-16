@@ -1,3 +1,4 @@
+import { Expose } from 'class-transformer';
 import {IsEmail, IsString, IsOptional, IsDefined, IsBoolean, MaxLength, MinLength, IsCurrency, IsPositive } from 'class-validator'
 
 export class CreateProductDto {
@@ -13,6 +14,12 @@ export class CreateProductDto {
     @MaxLength(100)
     description: string;
 
+    @IsString()
+    @IsDefined()
+    @MinLength(2)
+    @MaxLength(100)
+    type: string;
+
     @IsPositive()
     @IsDefined()
     price: number;
@@ -24,4 +31,7 @@ export class CreateProductDto {
     @IsBoolean()
     @IsOptional()
     available: boolean;
+
+    @Expose()
+    approved: boolean
 }

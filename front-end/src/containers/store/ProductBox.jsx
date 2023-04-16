@@ -4,6 +4,8 @@ import { addProduct } from '../../store/actions/cart.action';
 import classes from "./productBox.module.scss"
 import image from '../../assets/img/vynil_Shop.jpg.png'
 import Input from "../../composants/input/Input";
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 
 const ProductBox = (props) => {
@@ -13,7 +15,6 @@ const ProductBox = (props) => {
     const submitHandler = useCallback((e) => {
         e.preventDefault();
         const productQuantity = productQuantityRef.current.value;
-        console.log(productQuantity);
         const payLoad = {
             productId : props.id,
             name : props.name,
@@ -31,7 +32,7 @@ const ProductBox = (props) => {
             <p className={classes.product_description}>{props.description}</p>
             <p className={classes.product_price}>{props.price} €</p>
             <form onSubmit={submitHandler} className={classes.form}>
-                <Input ref={productQuantityRef} label='Products' input={{
+                <Input ref={productQuantityRef} label='QUANTITY' input={{
                     id: 'amount_'+props.id,
                     type: 'number',
                     defaultValue: '1',
@@ -39,7 +40,7 @@ const ProductBox = (props) => {
                     max:'10',
                     step:'1'
                 }}/>
-                <button>+ Add</button>
+                <Button type="submit" variant="contained" endIcon={<SendIcon/>}>ORDER</Button>
             </form>
         </div>
         

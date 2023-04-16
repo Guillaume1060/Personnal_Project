@@ -9,7 +9,9 @@ function useAxios(url) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(url, {
+          withCredentials: true,
+        });
         setData(response);
         setLoading(false);
       } catch (error) {

@@ -20,14 +20,34 @@ const cartReducer = createReducer(initialState, (builder) => {
       }
     })
     .addCase(addTicket, (state, action) => {
-      const concertTickets = action.payload;
-      state.itemCount += parseInt(concertTickets.concert.ticketQuantity);
-      state.tickets.push(concertTickets);
+      // TODO update après l'ajout en DB
+      const concertOrder = action.payload;
+      const index = state.tickets.findIndex(
+        (ticket) => ticket.concert.ticketId === concertOrder.concert.ticketId
+      );
+      if (index >= 0) {
+        state.tickets[index].ticket.ticketQuantity =
+          parseInt(state.tickets[index].ticket.ticketQuantity) +
+          parseInt(concertOrder.ticket.ticketQuantity);
+      } else {
+        state.tickets.push(concertOrder);
+      }
+      state.itemCount += parseInt(concertOrder.concert.ticketQuantity);
     })
     .addCase(addProduct, (state, action) => {
-      const productsOrders = action.payload;
-      state.itemCount += parseInt(productsOrders.product.productQuantity);
-      state.products.push(productsOrders);
+      const productOrder = action.payload;
+      const index = state.products.findIndex(
+        (product) =>
+          product.product.productId === productOrder.product.productId
+      );
+      if (index >= 0) {
+        state.products[index].product.productQuantity =
+          parseInt(state.products[index].product.productQuantity) +
+          parseInt(productOrder.product.productQuantity);
+      } else {
+        state.products.push(productOrder);
+      }
+      state.itemCount += parseInt(productOrder.product.productQuantity);
     });
 });
 

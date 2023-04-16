@@ -1,6 +1,6 @@
 import { Product } from 'src/products/product.entity';
 import { User } from 'src/users/user.entity';
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, ManyToMany} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from 'typeorm'
 
 @Entity('productsOrders') 
 export class ProductsOrder {

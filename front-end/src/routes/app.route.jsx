@@ -1,6 +1,7 @@
 import CartPage from "../pages/cart/CartPage";
 import LoginPage from "../pages/login/LoginPage";
 import RootPage from "../pages/root/RootPage";
+import SignIn from "../pages/signin/SignInPage";
 
 // import NotFound from "../pages/error/not-found-page";
 
@@ -9,12 +10,6 @@ const appRoute = [
   {
     path: "",
     element: <RootPage/>,
-    // children: [
-    //   {
-    //     path: "",
-    //     element: <Button />
-    //   }
-    // ]
   },
   {
     path: "cart",
@@ -30,6 +25,10 @@ const appRoute = [
   {
     path: "login",
     element: <LoginPage/>
+  },
+  {
+    path: "signin",
+    element: <SignIn/>
   }
   // {
 // Ci dessous pour gestion des autres routes (donc erreur)
