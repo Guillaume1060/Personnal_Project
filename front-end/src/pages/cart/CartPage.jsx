@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import classes from './cartPage.module.scss'
 import NavBar from "../../containers/nav/NavBar";
@@ -10,7 +9,7 @@ import useAxios from '../../hooks/use-axios';
 const CartPage = () => {
     const concertCartTickets = useSelector(state=>state.cart.tickets)
     const productCart = useSelector(state=>state.cart.products)
-    const { data, loading, error, postData } = useAxios('http://localhost:5000/auth/whoami');
+    const { user, loading, error, postuser } = useAxios('http://localhost:5000/auth/whoami');
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -21,7 +20,7 @@ const CartPage = () => {
         <div className={classes.ctn}>
             <NavBar/>
                 <div className={classes.recap}>
-                    <h2>Hi {data.data.name} </h2>
+                    <h2>Hi {user.data.name} </h2>
                 </div>
 
 

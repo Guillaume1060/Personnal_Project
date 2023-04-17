@@ -1,5 +1,5 @@
 import { Expose } from 'class-transformer';
-import {IsEmail, IsString, IsOptional, IsDefined, IsBoolean, MaxLength, MinLength, IsCurrency, IsPositive } from 'class-validator'
+import {IsString, IsOptional, IsDefined, IsBoolean, MaxLength, MinLength,IsPositive } from 'class-validator'
 
 export class CreateProductDto {
     @IsString()

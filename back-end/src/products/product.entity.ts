@@ -29,7 +29,4 @@ export class Product {
 
     @OneToMany(()=> ProductsOrder,(productOrder)=>productOrder.products)
     productsOrders:ProductsOrder[]
-
-    // @OneToMany(()=> Prod,(productOrder)=>productOrder.user)
-    // productOrders: productOrders[]
 }

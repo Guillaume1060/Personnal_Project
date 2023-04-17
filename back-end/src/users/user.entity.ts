@@ -1,3 +1,4 @@
+import { ConcertsOrder } from 'src/concerts-orders/concert-orders.entity';
 import { ProductsOrder } from 'src/products-orders/product-orders.entity';
 import {Entity, Column, PrimaryGeneratedColumn, AfterInsert, AfterUpdate, AfterRemove, OneToMany} from 'typeorm'
 
@@ -26,9 +27,11 @@ export class User {
     @Column({default:true})
     admin: boolean;
 
-    // @Column()
     @OneToMany(()=> ProductsOrder,(productOrder)=>productOrder.user)
     productsOrders: ProductsOrder[]
+
+    @OneToMany(()=> ConcertsOrder,(concertOrder)=>concertOrder.user)
+    concertsOrders: ConcertsOrder[]
 
     @AfterInsert()
     logInser () {

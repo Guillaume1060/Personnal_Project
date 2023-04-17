@@ -4,10 +4,6 @@ export class CreateProductOrderDto {
     @IsPositive()
     @IsDefined()
     quantity: number;
-    
-    @IsPositive()
-    @IsDefined()
-    amount: number
-    
+        
     products: any;
 }

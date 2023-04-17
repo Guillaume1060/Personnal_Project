@@ -1,6 +1,6 @@
 // to delete ?
 import { Transform } from 'class-transformer';
-import {IsEmail, IsString, IsOptional, IsDefined, IsBoolean, MaxLength, MinLength, IsCurrency, IsPositive } from 'class-validator'
+import {IsEmail, IsString, IsDefined, MaxLength, MinLength, IsCurrency, IsPositive } from 'class-validator'
 
 export class GetEstimateDto {
     @IsString()

@@ -3,7 +3,7 @@ import { ProductsService } from './products.service';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { ApproveProductDto } from './dtos/approve-product.dto';
 import { AdminGuard } from 'src/_guards/admin.guard';
-import { GetEstimateDto } from './dtos/get-estimate.dto';
+import { UpdateProductDto } from './dtos/update-product.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -14,7 +14,7 @@ export class ProductsController {
         return this.productService.create(body)
     }
 
-    @Patch('/:id')
+    @Patch('approve/:id')
     @UseGuards(AdminGuard)
     approveProduct(@Param('id') id:string,@Body() body:ApproveProductDto) {
         return this.productService.changeApproval(id,body.approved)
@@ -25,12 +25,13 @@ export class ProductsController {
         return this.productService.getAll()
     }
 
-    // A supprimer ?
-    // @Get()
-    // getEstimate(@Query() query: GetEstimateDto) {
-    //     return this.productService.createEstimate(query)
-    // }
+    @Patch('/:id')
+    updateProduct(@Param('id') id:string, @Body() body:UpdateProductDto){
+        return this.productService.update(+id,body) 
+    }
 
-
-
+    @Patch('unavailable/:id')
+    removeProduct(@Param('id') id:string){
+        return this.productService.remove(+id) 
+    }
 }

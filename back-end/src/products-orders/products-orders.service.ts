@@ -1,11 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProductsOrder } from './product-orders.entity';
 import { CreateProductOrderDto } from './dtos/create-product-order.dto';
 import { User } from 'src/users/user.entity';
 import { Product } from 'src/products/product.entity';
-
 
 @Injectable()
 export class ProductsOrdersService {
@@ -15,22 +14,30 @@ export class ProductsOrdersService {
         // @InjectRepository(User) private repoUser: Repository<User>
         ) {}
 
-
     async create(ProductOrderDto : CreateProductOrderDto, user:User) {
+        const { products, quantity } = ProductOrderDto;
         const ProductOrder = this.repo.create(ProductOrderDto)
+        const product = await this.repoProduct
+          .createQueryBuilder('product')
+          .select(['product.id', 'product.price', 'product.stock'])
+          .where('product.id = :id', { id: products })
+          .andWhere('product.stock >= :quantity', { quantity })
+          .getOne();
+        if (!product) throw new UnauthorizedException('Not enough stock');
+        const amount = product.price * quantity;
         ProductOrder.user = user
-        const IdProduct = ProductOrderDto.products;
-        const quantityBought = ProductOrderDto.quantity;
-        await this.repoProduct.decrement({id:IdProduct},'stock',quantityBought)
+        ProductOrder.amount = amount
+        // Update stock
+        await this.repoProduct.decrement({id:products},'stock',quantity)
+        const updatedStock = (await this.repoProduct.findOneBy({id:products})).stock
+        if (updatedStock<=0) {
+            await this.repoProduct.update({id:products},{available:false})
+        }
         return this.repo.save(ProductOrder)
     }
 
     async findAllById(user: User) {
-        console.log(user);
         let allProductOrdersByUser = await this.repo.find({ where: { user:{id:user.id} },relations: ['products'] })
         return allProductOrdersByUser
     }
-
-
-
 }

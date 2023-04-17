@@ -4,6 +4,7 @@ import { Product } from './product.entity';
 import { Repository } from 'typeorm';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { GetEstimateDto } from './dtos/get-estimate.dto';
+import { log } from 'console';
 
 @Injectable()
 export class ProductsService {
@@ -15,7 +16,7 @@ export class ProductsService {
     }
 
     getAll(){
-        return this.repo.find()
+        return this.repo.find({ where: { available: true,approved:true } })
     }
 
     async changeApproval(id: string, approved: boolean) {
@@ -24,6 +25,20 @@ export class ProductsService {
             throw new NotFoundException('Product not found')
         }
         product.approved = approved
+        return this.repo.save(product)
+    }
+
+    async update(id:number,attrs:Partial<Product>) {
+        const product = await this.repo.findOneBy({id});
+        if (!product) throw new NotFoundException('Product not found')
+        Object.assign(product,attrs)
+        return this.repo.save(product)
+    }
+
+    async remove(id:number) {
+        const product = await this.repo.findOneBy({id});
+        if (!product) throw new NotFoundException('Product not found')
+        product.available = false
         return this.repo.save(product)
     }
 

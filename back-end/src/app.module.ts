@@ -6,6 +6,8 @@ import { Product } from './products/product.entity';
 import { ProductsModule } from './products/products.module';
 import { ProductsOrder } from './products-orders/product-orders.entity';
 import { ProductsOrdersModule } from './products-orders/products-orders.module';
+import { ConcertsModule } from './concerts/concerts.module';
+import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
 
 @Module({
   imports: [
@@ -14,8 +16,10 @@ import { ProductsOrdersModule } from './products-orders/products-orders.module';
       host : "localhost",
       port : 1433,
       username : "guillaume",
-      password : "test1234", 
-      database : "digital_TFE",
+      // password : "test1234", 
+      // database : "digital_TFE",
+      password : "160280", 
+      database : "TFE",
       entities : [User, Product,ProductsOrder], 
       autoLoadEntities : true,
       synchronize : true,
@@ -25,7 +29,7 @@ import { ProductsOrdersModule } from './products-orders/products-orders.module';
       },
       // logging : "all"
     }),
-    UsersModule, ProductsModule, ProductsOrdersModule],
+  UsersModule, ProductsModule, ProductsOrdersModule,ConcertsModule,ConcertOrdersModule],
   controllers: [], 
   providers: [], 
 })
