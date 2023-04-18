@@ -3,11 +3,11 @@
 
 .ctn {
     @include ctn($store-bcg-color);
-    flex-grow: 1;
 }
 
 .store {
     gap: 2rem;
+    flex-grow: 1;
 
     &_title {
         h2{
