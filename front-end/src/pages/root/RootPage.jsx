@@ -15,7 +15,7 @@ const hideCartHandler = () => {
   dispatch(displayCart())
 }
     return (
-        <>
+        < >
             {isShow && <Cart onCart={hideCartHandler} />}
             <Home/>
             <About/>

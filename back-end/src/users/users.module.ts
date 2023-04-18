@@ -7,9 +7,11 @@ import { AuthService } from './auth.service';
 // import { JwtModule, JwtService } from '@nestjs/jwt';
 // import { JWT_SECRET } from './constant';
 import { CurrentUserMiddleware } from './middlewares/current-user.middleware';
+import { ProductsOrder } from 'src/products-orders/product-orders.entity';
+import { ConcertsOrder } from 'src/concerts-orders/concert-orders.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]),
+  imports: [TypeOrmModule.forFeature([User, ProductsOrder,ConcertsOrder]),
   // JwtModule.register({
   //   global: true,
   //   secret: JWT_SECRET,

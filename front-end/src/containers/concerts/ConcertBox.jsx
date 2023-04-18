@@ -13,7 +13,7 @@ const ConcertBox = (props) => {
             </div>
             <div className={classes.ticketLink}>
                 <div>
-                    <ConcertItemForm id={props.id} venue={props.venue} date={props.date} city={props.city}/>
+                    <ConcertItemForm id={props.id} venue={props.venue} date={props.date} city={props.city} price={props.price}/>
                 </div> 
             </div>
         </div>

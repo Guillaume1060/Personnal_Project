@@ -16,7 +16,6 @@ const concertCartTickets = useSelector(state=>state.cart.tickets)
 const productCart = useSelector(state=>state.cart.products)
 const itemCartQty = useSelector(state=>state.cart.itemCount)
 
-
 // const totalAmount = productCart.map(product=>{product.product.price*product.product.productQuantity})
 const concertCartItems = 
 <ul className={classes['cart-items']}>
@@ -26,7 +25,7 @@ const concertCartItems =
             <p className={classes.art_1}>{concert.concert.city}</p>
             <p className={classes.art_2}>{concert.concert.date}</p>
             <p className={classes.art_3}>{concert.concert.ticketQuantity} ticket(s)</p>
-            <p className={classes.art_1}>Total: {concert.concert.price*concert.concert.concertQuantity} euros</p>
+            <p className={classes.art_1}>Total: {concert.concert.price*concert.concert.ticketQuantity} euros</p>
         </li>)}
     </ul>
 

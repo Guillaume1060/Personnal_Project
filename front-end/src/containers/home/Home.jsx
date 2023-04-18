@@ -1,8 +1,8 @@
 import classes from './home.module.scss'
-// import { Outlet } from 'react-router-dom';
-import NavBar from '../nav/NavBar'
+
 import Button from '../../composants/button/Button';
 import ListIcons from '../../composants/listIcons/ListIcons';
+import NavBar from '../nav/NavBar_home';
 
 
 const Home = () => {

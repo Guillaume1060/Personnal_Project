@@ -20,15 +20,15 @@ const cartReducer = createReducer(initialState, (builder) => {
       }
     })
     .addCase(addTicket, (state, action) => {
-      // TODO update après l'ajout en DB
       const concertOrder = action.payload;
       const index = state.tickets.findIndex(
         (ticket) => ticket.concert.ticketId === concertOrder.concert.ticketId
       );
       if (index >= 0) {
-        state.tickets[index].ticket.ticketQuantity =
-          parseInt(state.tickets[index].ticket.ticketQuantity) +
-          parseInt(concertOrder.ticket.ticketQuantity);
+        console.log(state.tickets[index].concert.ticketQuantity);
+        state.tickets[index].concert.ticketQuantity =
+          parseInt(state.tickets[index].concert.ticketQuantity) +
+          parseInt(concertOrder.concert.ticketQuantity);
       } else {
         state.tickets.push(concertOrder);
       }
@@ -41,6 +41,7 @@ const cartReducer = createReducer(initialState, (builder) => {
           product.product.productId === productOrder.product.productId
       );
       if (index >= 0) {
+        console.log(state.products[index].product.productQuantity);
         state.products[index].product.productQuantity =
           parseInt(state.products[index].product.productQuantity) +
           parseInt(productOrder.product.productQuantity);

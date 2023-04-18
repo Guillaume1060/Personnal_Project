@@ -16,6 +16,8 @@ export class UsersController {
     // @UseGuards(AuthGuard)
     @Get('/whoami')
     whoAmI(@CurrentUser() user:User) {
+        console.log(user);
+        
       return user
     }
 
@@ -41,6 +43,11 @@ export class UsersController {
     @Get('/users')
     async getall(){
         return await this.userService.findAll()
+    }
+
+    @Get('/orders')
+    async findAllOrders(@CurrentUser() user:User){
+        return await this.userService.findAllOrders(user)
     }
 
 }

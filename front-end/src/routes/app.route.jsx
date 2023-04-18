@@ -1,3 +1,4 @@
+import About from "../containers/about/About";
 import CartPage from "../pages/cart/CartPage";
 import LoginPage from "../pages/login/LoginPage";
 import RootPage from "../pages/root/RootPage";
@@ -24,12 +25,21 @@ const appRoute = [
   },
   {
     path: "login",
-    element: <LoginPage/>
+    element: <LoginPage/>,
+    children:[
+      {
+        index:true,
+        element: <SignIn/>
+      },
+      {
+        path:'new',
+        element:<About/>
+      }
+    ]
   },
-  {
-    path: "signin",
-    element: <SignIn/>
-  }
+  // {
+  //   path: "signin",
+  // }
   // {
 // Ci dessous pour gestion des autres routes (donc erreur)
     // path: "*",

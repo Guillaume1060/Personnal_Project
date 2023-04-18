@@ -3,6 +3,7 @@
 
 .ctn {
     @include ctn($store-bcg-color);
+    flex-grow: 1;
 }
 
 .store {

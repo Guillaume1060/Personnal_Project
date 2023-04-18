@@ -5,12 +5,9 @@ import useAxios from '../../hooks/use-axios';
 
 const Store = () => {
     const { data, loading, error, postData } = useAxios('http://localhost:5000/products');
-    // console.log(data.data[0].name);
-
     if (loading) {
         return <div>Loading...</div>;
       }
-    
       if (error) {
         return <div>Error: {error.message}</div>;
       }

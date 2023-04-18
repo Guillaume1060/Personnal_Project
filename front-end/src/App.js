@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import appRoute from "./routes/app.route";
 import { useRoutes } from "react-router-dom";
 import store from "./store/store";
-// import NavBar from "./containers/nav/NavBar";
+import classes from "./App.scss";
 
 function App() {
   const routes = useRoutes(appRoute);
@@ -11,7 +11,7 @@ function App() {
     <>
       <Provider store={store}>
         {/* <NavBar /> */}
-        <main>{routes}</main>
+        <main className={classes.parent}>{routes}</main>
       </Provider>
     </>
   );

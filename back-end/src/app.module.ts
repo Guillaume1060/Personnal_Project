@@ -16,10 +16,12 @@ import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
       host : "localhost",
       port : 1433,
       username : "guillaume",
-      // password : "test1234", 
-      // database : "digital_TFE",
-      password : "160280", 
-      database : "TFE",
+      // HOME
+      password : "test1234", 
+      database : "digital_TFE",
+      // SCHOOL
+      // password : "160280", 
+      // database : "TFE",
       entities : [User, Product,ProductsOrder], 
       autoLoadEntities : true,
       synchronize : true,

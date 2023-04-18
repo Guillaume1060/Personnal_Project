@@ -16,7 +16,7 @@ export class ProductsOrdersService {
 
     async create(ProductOrderDto : CreateProductOrderDto, user:User) {
         const { products, quantity } = ProductOrderDto;
-        const ProductOrder = this.repo.create(ProductOrderDto)
+        const productOrder = this.repo.create(ProductOrderDto)
         const product = await this.repoProduct
           .createQueryBuilder('product')
           .select(['product.id', 'product.price', 'product.stock'])
@@ -25,15 +25,15 @@ export class ProductsOrdersService {
           .getOne();
         if (!product) throw new UnauthorizedException('Not enough stock');
         const amount = product.price * quantity;
-        ProductOrder.user = user
-        ProductOrder.amount = amount
+        productOrder.user = user
+        productOrder.amount = amount
         // Update stock
         await this.repoProduct.decrement({id:products},'stock',quantity)
         const updatedStock = (await this.repoProduct.findOneBy({id:products})).stock
         if (updatedStock<=0) {
             await this.repoProduct.update({id:products},{available:false})
         }
-        return this.repo.save(ProductOrder)
+        return this.repo.save(productOrder)
     }
 
     async findAllById(user: User) {

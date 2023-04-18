@@ -3,10 +3,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
+import { ConcertsOrder } from 'src/concerts-orders/concert-orders.entity';
+import { ProductsOrder } from 'src/products-orders/product-orders.entity';
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectRepository(User) private repo: Repository<User>) {}
+    constructor(
+        @InjectRepository(User) private repo: Repository<User>,
+        @InjectRepository(ProductsOrder) private repoProduct : Repository<ProductsOrder>,
+        @InjectRepository(ConcertsOrder) private repoConcert : Repository<ConcertsOrder>) {}
     create (newUser : CreateUserDto, password:string) {
         newUser.password = password
         const user = this.repo.create(newUser);
@@ -33,5 +38,13 @@ export class UsersService {
         if (!user) throw new NotFoundException('user not found')
         // this.repo.delete(id) // No Hook
         return this.repo.remove(user); // Hook
+    }
+
+    async findAllOrders(user: User) {
+        let allProductOrdersByUser = await this.repoProduct.find({ where: { user:{id:user.id} },relations: ['products'] })
+        let allConcertOrdersByUser = await this.repoConcert.find({ where: { user:{id:user.id} },relations: ['concerts'] })
+        user.productsOrders =allProductOrdersByUser;
+        user.concertsOrders =allConcertOrdersByUser;
+        return user
     }
 }

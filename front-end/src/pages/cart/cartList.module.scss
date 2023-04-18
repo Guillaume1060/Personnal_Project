@@ -1,0 +1,15 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 2rem;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    border: solid 1px white;
+    margin-bottom: 3rem;
+    &_td {    
+        padding: 1rem;
+        text-align: center;}
+    &_th {    
+        padding: 1rem;
+        text-align: center;}
+}

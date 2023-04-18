@@ -1,12 +1,33 @@
-.ctn {
+@import "../../styles/variables";
+
+.page {
     background-color: rgb(22, 22, 25);
     padding-top: 1rem;
-    font-size: 2rem;
-    font-family: TiltNeon;
-    color: white;
     height: 100vh;
+    color: $ligh-text-color;
+    font-family: forum;
+    text-decoration: none;
+    font-size: 2.5rem;
 }
 
-.recap {
-    padding: 5rem;
+.ctn {
+    margin: 5rem 7rem;
+    &_title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+    &_total {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+// .input {
+//     border:none; 
+//     font-size:16px; 
+//     font-family:Arial; 
+//     color:#333;
+// }
 }
+

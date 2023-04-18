@@ -33,6 +33,7 @@ export class User {
     @OneToMany(()=> ConcertsOrder,(concertOrder)=>concertOrder.user)
     concertsOrders: ConcertsOrder[]
 
+
     @AfterInsert()
     logInser () {
         console.log('Inserted user with id', this.id);
