@@ -17,11 +17,11 @@ import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
       port : 1433,
       username : "guillaume",
       // HOME
-      password : "test1234", 
-      database : "digital_TFE",
+      // password : "test1234", 
+      // database : "digital_TFE",
       // SCHOOL
-      // password : "160280", 
-      // database : "TFE",
+      password : "160280", 
+      database : "TFE",
       entities : [User, Product,ProductsOrder], 
       autoLoadEntities : true,
       synchronize : true,

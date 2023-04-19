@@ -8,7 +8,6 @@ import { addTicket } from '../../store/actions/cart.action';
 const ConcertItemForm = (props) => {
     const ticketQuantityRef = useRef()
     const dispatch = useDispatch()
-
     const submitHandler = useCallback((e) => {
         e.preventDefault();
         const ticketQuantity = ticketQuantityRef.current.value;
@@ -22,7 +21,6 @@ const ConcertItemForm = (props) => {
         }
         dispatch(addTicket(payLoad))
     })
-    
     return (
         <form onSubmit={submitHandler} className={classes.form} >
             <Input ref={ticketQuantityRef} label='Tickets' input={{
