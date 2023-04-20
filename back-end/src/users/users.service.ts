@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { ConcertsOrder } from 'src/concerts-orders/concert-orders.entity';
 import { ProductsOrder } from 'src/products-orders/product-orders.entity';
+import { log } from 'console';
 
 @Injectable()
 export class UsersService {
@@ -38,6 +39,17 @@ export class UsersService {
         if (!user) throw new NotFoundException('user not found')
         // this.repo.delete(id) // No Hook
         return this.repo.remove(user); // Hook
+    }
+
+    async findAccountBalanceByUser(user: User) {
+        return user.money
+    }
+
+    async updateAccountBalanceByUser(user: User, amount:string) {
+        const value = parseInt(amount)
+        console.log('user',user);
+        user.money -= value
+        return this.repo.save(user)
     }
 
     async findAllOrders(user: User) {

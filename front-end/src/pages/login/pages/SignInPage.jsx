@@ -39,12 +39,15 @@ export default function SignIn() {
   const handleSubmit = async (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
+  console.log(data);
+  console.log(data.get('email'));
+  console.log(data.get('password'));
 
 /////
   axios.post('http://localhost:5000/auth/signin', {
       email: data.get('email'),
-      password: data.get('password')},{
-        withCredentials: true,}
+      password: data.get('password')},
+      {withCredentials: true}
 )
 .then(response => {
   navigate('/cart');
@@ -72,15 +75,15 @@ export default function SignIn() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 3,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
-          </Avatar>
+          </Avatar> */}
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>

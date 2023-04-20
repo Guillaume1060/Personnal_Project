@@ -10,7 +10,7 @@ async function bootstrap() {
   dotenv.config();
   app.enableCors({
     origin: 'http://localhost:3000', // autorise toutes les sources d'accès
-    methods: 'GET,POST,PUT,DELETE', // autorise les méthodes HTTP
+    methods: 'GET,POST,PUT,PATCH,DELETE', // autorise les méthodes HTTP
     allowedHeaders: 'Content-Type,Authorization', // autorise les en-têtes personnalisés
     credentials: true
   });

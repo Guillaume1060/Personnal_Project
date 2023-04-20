@@ -27,6 +27,9 @@ export class User {
     @Column({default:true})
     admin: boolean;
 
+    @Column({default:100})
+    money: number;
+
     @OneToMany(()=> ProductsOrder,(productOrder)=>productOrder.user)
     productsOrders: ProductsOrder[]
 

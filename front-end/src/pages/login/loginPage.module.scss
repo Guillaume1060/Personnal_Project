@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.ctn {
+    @include ctn($concert-bcg-color);
+}
+
+.form {
+    text-align: center;
+    margin-top: 3rem;
+}

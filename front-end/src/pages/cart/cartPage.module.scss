@@ -1,7 +1,8 @@
 @import "../../styles/variables";
+@import "../../styles/mixin";
 
 .page {
-    background-color: rgb(22, 22, 25);
+    background-color:$store-bcg-color;
     padding-top: 1rem;
     height: 100vh;
     color: $ligh-text-color;
@@ -11,23 +12,28 @@
 }
 
 .ctn {
-    margin: 5rem 7rem;
+    @include ctn($store-bcg-color);
     &_title {
         font-size: 3rem;
         margin-bottom: 4rem;
         text-align: center;
     }
     &_total {
-        font-size: 3rem;
+        font-size: 5rem;
+        color: red;
         margin-bottom: 4rem;
         text-align: center;
     }
+    &_reduc {
+        font-size: 1.5rem;
+        // margin-bottom: 4rem;
+        text-align: center;
+    }
+}
 
-// .input {
-//     border:none; 
-//     font-size:16px; 
-//     font-family:Arial; 
-//     color:#333;
-// }
+.button {
+    display: flex;
+    justify-content: space-around;
+    
 }
 

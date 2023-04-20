@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Session, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Session, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { AuthService } from './auth.service';
@@ -43,6 +43,17 @@ export class UsersController {
     @Get('/users')
     async getall(){
         return await this.userService.findAll()
+    }
+
+    @Get('/balance')
+    async findAccountBalanceByUser(@CurrentUser() user:User){
+        return await this.userService.findAccountBalanceByUser(user)
+    }
+
+    @Patch('/balance/:amount')
+    async udpateAccount(@CurrentUser() user:User, @Param('amount') amount:string,){
+        console.log(user)
+        return await this.userService.updateAccountBalanceByUser(user,amount)
     }
 
     @Get('/orders')
