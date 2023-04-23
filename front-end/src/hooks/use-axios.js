@@ -31,8 +31,11 @@ function useAxios(url) {
       setError(error);
     }
   }
+  async function resetData() {
+    setData([]);
+  }
 
-  return { data, loading, error, postData };
+  return { data, loading, error, postData, resetData };
 }
 
 export default useAxios;

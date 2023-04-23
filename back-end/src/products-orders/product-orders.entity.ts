@@ -13,6 +13,9 @@ export class ProductsOrder {
     @Column() 
     amount: number;
 
+    @Column({ type: 'timestamp'})
+    createdAt: Date;
+
     @ManyToOne(()=> Product,(product)=>product.productsOrders)
     products:Product
 

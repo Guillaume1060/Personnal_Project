@@ -1,10 +1,13 @@
 .ctn {
-    border : 1px solid black;
+    border : 3px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 10rem;
     display: flex;
     align-content: center;
-    width: 40vh;
+    width: 30vh;
     height: 20vh;
-    margin: 1rem;
+    margin: 2rem;
+    flex-grow: 1;
 }
 
 .ticket {
@@ -13,13 +16,13 @@ margin-left: .5rem;
 align-self: center;
 text-align:justify;
 
-    &_date {
+    &_venue {
         font-size: 2.6rem;
         font-weight: bold;
         margin-bottom: .5rem;
     }
-    &_venue {
-        font-size: 2.4rem;
+    &_date {
+        font-size: 2rem;
     }
     &_support {
         font-size: 1.3rem;

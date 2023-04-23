@@ -1,21 +1,24 @@
 import classes from './cartList.module.scss'
 import { useSelector } from 'react-redux';
+import { deleteTicketRow } from '../../store/actions/cart.action';
+import { useDispatch } from 'react-redux';
 
 const CartList =(props)=> {
+  const dispatch = useDispatch()
   const concertCartTickets = useSelector(state=>state.cart.tickets)
   const productCart = useSelector(state=>state.cart.products)
 
-  const handleChange = () => {
-    // ici upadate du state
+  const deleteRow = (e) => {
+    const row = e.target.closest("tr").dataset.key;
+    // const qty = e.target.closest("tr").dataset.key;
+    const payLoad = {
+      concertId : row,
+      // quantity : qty
   }
-  const deleteRow = () => {
-    // ici upadate du state
+  dispatch(deleteTicketRow(payLoad))
+    // ici update du state
   }
 
-  // function deleteRow(btn) {
-  //   var row = btn.parentNode.parentNode;
-  //   row.parentNode.removeChild(row);
-  // }
   return(
     <>
     <table className={classes.table} >
@@ -30,21 +33,14 @@ const CartList =(props)=> {
       </thead>
       <tbody>
         {concertCartTickets.map(concert=>
-        <tr>
+        <tr key={concert.concert.ticketId} data-key={concert.concert.ticketId} >
           <td>{concert.concert.venue} ({concert.concert.date})</td>
           <td>${concert.concert.price}</td>
           <td>
-          {/* <input
-            type="number"
-            id="number-input"
-            name="number"
-            value={concert.concert.ticketQuantity}
-            onChange={handleChange}
-            /> */}
             {concert.concert.ticketQuantity}
           </td>
           <td>${concert.concert.price*concert.concert.ticketQuantity}</td>
-          <td><button onclick={deleteRow}>❌</button></td>
+          <td><button onClick={deleteRow}>❌</button></td>
         </tr>)}
       </tbody>
     </table>
@@ -65,13 +61,6 @@ const CartList =(props)=> {
           <td>{product.product.name} ({product.product.type})</td>
           <td>${product.product.price}</td>
           <td>
-          {/* <input
-            type="number"
-            id="number-input"
-            name="number"
-            value={product.product.productQuantity}
-            onChange={handleChange}
-          /> */}
             {product.product.productQuantity}
           </td>
           <td>${product.product.price*product.product.productQuantity}</td>

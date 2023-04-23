@@ -12,7 +12,7 @@ const ConcertItemForm = (props) => {
         e.preventDefault();
         const ticketQuantity = ticketQuantityRef.current.value;
         const payLoad = {
-            concertId : props.id,
+            ticketId : props.id,
             venue : props.venue,
             city : props.city,
             date : props.date,

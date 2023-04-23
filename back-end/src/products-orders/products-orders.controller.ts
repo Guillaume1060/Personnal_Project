@@ -10,7 +10,7 @@ export class ProductsOrdersController {
     constructor(private ProductOrderService: ProductsOrdersService) {}
     
     @Post()
-    @Serialize(ProductOrderDto)
+    // @Serialize(ProductOrderDto)
     createProductOrder(@Body() body:CreateProductOrderDto,@CurrentUser() user:User) {
         return this.ProductOrderService.create(body,user);
     }

@@ -2,7 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import * as dotenv from 'dotenv';
-const cookieSession = require('cookie-session')
+import cookieSession from 'cookie-session';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
 
 
 async function bootstrap() {
@@ -16,10 +18,20 @@ async function bootstrap() {
   });
   app.use(cookieSession({
     keys:['abcefzefzef']
-  }))
+  }));
   app.useGlobalPipes(
     new ValidationPipe()
   );
+  const configSwagger = new DocumentBuilder()
+  .setTitle("Api TFE")
+  .setDescription("BLA BLA BLA")
+  .setVersion("0.0.1")
+	// .addBearerAuth({ type: 'http',name:'Bearer',bearerFormat:"Bearer......"})
+  .build()
+
+  const pageSwagger = SwaggerModule.createDocument(app, configSwagger)
+  SwaggerModule.setup("api", app, pageSwagger)
+
   await app.listen(process.env.PORT);
 }
 bootstrap();

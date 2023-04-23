@@ -1,5 +1,5 @@
 import About from '../../containers/about/About';
-import Cart from '../../containers/cart/Cart';
+import Cart from '../../containers/modal/cart/Cart';
 import Concert from '../../containers/concerts/Concert';
 import Footer from '../../containers/footer/Footer';
 import Home from '../../containers/home/Home';

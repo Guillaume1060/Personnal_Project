@@ -47,7 +47,6 @@ export class UsersService {
 
     async updateAccountBalanceByUser(user: User, amount:string) {
         const value = parseInt(amount)
-        console.log('user',user);
         user.money -= value
         return this.repo.save(user)
     }

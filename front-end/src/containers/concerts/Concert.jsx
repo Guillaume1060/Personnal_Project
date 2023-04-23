@@ -11,8 +11,9 @@ if (loading) {
 if (error) {
     return <div>Error: {error.message}</div>;
 }
+   
 const concertsList = data.data.map(concert=><ConcertBox id={concert.id} key={concert.id} venue={concert.venue} support={concert.support} city={concert.city} date={concert.date} price={concert.price} />)
-    return (
+return (
         <div id='concert' className={classes.ctn}>
             <ArrowUpIcon/>
             <div className={classes.concert}>

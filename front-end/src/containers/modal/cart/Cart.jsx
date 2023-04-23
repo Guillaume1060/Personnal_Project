@@ -1,8 +1,8 @@
 import classes from './cart.module.scss'
-import Modal from '../../composants/modal/Modal'
+import Modal from '../../../composants/modal/Modal'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { displayCart } from '../../store/actions/cart.action';
+import { displayCart } from '../../../store/actions/cart.action.js';
 
 
 const Cart = (props) => {

@@ -6,24 +6,33 @@ import { AuthUserDto } from './dtos/auth-user.dto';
 import { AuthGuard } from '../_guards/auth.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
+import { log } from 'console';
 
+@ApiTags("Gestion des utilisateurs")
 @Controller('auth')
 export class UsersController {
     constructor( 
         private userService : UsersService,
         private authService : AuthService){}
 
-    // @UseGuards(AuthGuard)
+        // @UseGuards(AuthGuard)
+        /**
+         * GET /auth
+         * @tags Users
+         * @summary Return current User
+         * @return {array<User>} 200 - All Tracks Ok
+        */
     @Get('/whoami')
     whoAmI(@CurrentUser() user:User) {
-        console.log(user);
-        
       return user
     }
 
     @Post('/signout')
     signOut(@Session() session:any) {
+        console.log('avant',session.userId);
+        // res.clearCookie('session');
         session.userId = null
+        console.log('apres',session.userId);
     }
 
     @Post('/signup')
@@ -52,7 +61,6 @@ export class UsersController {
 
     @Patch('/balance/:amount')
     async udpateAccount(@CurrentUser() user:User, @Param('amount') amount:string,){
-        console.log(user)
         return await this.userService.updateAccountBalanceByUser(user,amount)
     }
 
@@ -63,4 +71,8 @@ export class UsersController {
 
 }
 
+
+function ApiTags(arg0: string): (target: typeof UsersController) => void | typeof UsersController {
+    throw new Error('Function not implemented.');
+}
 

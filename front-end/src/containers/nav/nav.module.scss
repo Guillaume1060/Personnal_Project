@@ -1,12 +1,10 @@
 @import "../../styles/variables";
 
-
 .nav_box {
     margin-top: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .nav_box__list {
@@ -30,18 +28,28 @@
 // CART -> A METTRE EN PLACE
 .cart_nav__icon_box {
     position: relative; }
-  .cart_nav__icon {
+.cart_nav__icon {
     margin-top: 0.5rem;
     margin-right: .5rem;
     height: 6.25rem;
     width: 6.25rem;
     fill: $ligh-text-color; }
-  .cart_nav__notification {
+
+// Below specific to our user nav
+    .user_nav__icon {
+        margin-top: 0.5rem;
+        margin-right: 2.5rem;
+        height: 6.25rem;
+        width: 6.25rem;
+        fill: $ligh-text-color; }
+// to our user nav
+
+.cart_nav__notification {
     font-size: 1.2rem;
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
-    background-color: red;
+    background-color: $concert-bcg-color;
     color: #fff;
     position: absolute;
     top: 4.5rem;

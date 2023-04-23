@@ -8,6 +8,8 @@ import { ProductsOrder } from './products-orders/product-orders.entity';
 import { ProductsOrdersModule } from './products-orders/products-orders.module';
 import { ConcertsModule } from './concerts/concerts.module';
 import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
+import { Concert } from './concerts/concert.entity';
+import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
       // SCHOOL
       // password : "160280", 
       // database : "TFE",
-      entities : [User, Product,ProductsOrder], 
+      entities : [User, Product,ProductsOrder,Concert, ConcertsOrder], 
       autoLoadEntities : true,
       synchronize : true,
       extra : {

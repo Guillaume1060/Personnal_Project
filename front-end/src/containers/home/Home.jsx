@@ -1,8 +1,8 @@
 import classes from './home.module.scss'
-
 import Button from '../../composants/button/Button';
 import ListIcons from '../../composants/listIcons/ListIcons';
 import NavBar from '../nav/NavBar_home';
+import AlbumImage from '../../api/AlbumImg';
 
 
 const Home = () => {
@@ -10,6 +10,9 @@ const Home = () => {
     return (
         <div id='home' className={classes.ctn} >
             <NavBar/>
+                <div>
+                    <AlbumImage albumId={1789} size="medium" />
+                </div>
                 <h1 className={classes.title}>CARLA T</h1>
                 <div>
                     <h3 className={classes.heading}>

@@ -4,7 +4,7 @@ import LoginPage from "../pages/login/LoginPage";
 import RootPage from "../pages/root/RootPage";
 import SignIn from "../pages/login/pages/SignInPage";
 import SignUp from "../pages/login/pages/SignUpPage";
-import Payment from "../pages/payment/Payment";
+
 
 // import NotFound from "../pages/error/not-found-page";
 
@@ -17,13 +17,7 @@ const appRoute = [
   {
     path: "cart",
     element: <CartPage />,
-  //   children: [
-  //       {
-  //         path:'payment',
-  //         element: <Payment/>
-  //       },
-  // ]
- },
+  },
   {
     path: "login",
     element: <LoginPage/>,
@@ -38,10 +32,7 @@ const appRoute = [
       },
     ]
   },
-{
-  path:'payment',
-  element: <Payment/>
-},
+
 
 
 // Ci dessous pour gestion des autres routes (donc erreur)
