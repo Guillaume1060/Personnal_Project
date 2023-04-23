@@ -9,6 +9,7 @@ import { ProductsOrdersModule } from './products-orders/products-orders.module';
 import { ConcertsModule } from './concerts/concerts.module';
 import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
 import { Concert } from './concerts/concert.entity';
+import * as dotenv from 'dotenv';
 import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
 
 @Module({
@@ -17,10 +18,11 @@ import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
       type : "mssql",
       host : "localhost",
       port : 1433,
-      username : "guillaume",
+      username : 'guillaume',
       // HOME
-      password : "test1234", 
+      password : 'test1234',
       database : "digital_TFE",
+      
       // SCHOOL
       // password : "160280", 
       // database : "TFE",

@@ -8,7 +8,7 @@ import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
 import { log } from 'console';
 
-@ApiTags("Gestion des utilisateurs")
+// @ApiTags("Gestion des utilisateurs")
 @Controller('auth')
 export class UsersController {
     constructor( 
