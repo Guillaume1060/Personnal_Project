@@ -3,7 +3,9 @@ import { AdminGuard } from 'src/_guards/admin.guard';
 import { ConcertsService } from './concerts.service';
 import { CreateConcertDto } from './dtos/create-concert.dto';
 import { UpdateConcertDto } from './dtos/update-concert.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Gestion des concerts")
 @Controller('concerts')
 export class ConcertsController {
     constructor(private concertService: ConcertsService){}

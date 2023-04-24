@@ -1,6 +1,7 @@
 import classes from './cartList.module.scss'
 import { useSelector } from 'react-redux';
-import { deleteTicketRow } from '../../store/actions/cart.action';
+import { deleteTicketRow,deleteProductRow } from '../../store/actions/cart.action';
+
 import { useDispatch } from 'react-redux';
 
 const CartList =(props)=> {
@@ -8,14 +9,24 @@ const CartList =(props)=> {
   const concertCartTickets = useSelector(state=>state.cart.tickets)
   const productCart = useSelector(state=>state.cart.products)
 
-  const deleteRow = (e) => {
-    const row = e.target.closest("tr").dataset.key;
+  const deleteConcertRow = (e) => {
+    const idConcert = e.target.closest("tr").dataset.key;
     // const qty = e.target.closest("tr").dataset.key;
     const payLoad = {
-      concertId : row,
+      concertId : idConcert,
       // quantity : qty
+    }
+    dispatch(deleteTicketRow(payLoad))
+    // ici update du state
   }
-  dispatch(deleteTicketRow(payLoad))
+  const deleteProduct = (e) => {
+    const idProduct = e.target.closest("tr").dataset.key;
+    // const qty = e.target.closest("#qty")
+    const payLoad = {
+      productId : idProduct,
+      // quantity : qty
+    }
+    dispatch(deleteProductRow(payLoad))
     // ici update du state
   }
 
@@ -40,7 +51,7 @@ const CartList =(props)=> {
             {concert.concert.ticketQuantity}
           </td>
           <td>${concert.concert.price*concert.concert.ticketQuantity}</td>
-          <td><button onClick={deleteRow}>❌</button></td>
+          <td><button onClick={deleteConcertRow}>❌</button></td>
         </tr>)}
       </tbody>
     </table>
@@ -57,14 +68,14 @@ const CartList =(props)=> {
       </thead>
       <tbody>
         {productCart.map(product=>
-        <tr>
-          <td>{product.product.name} ({product.product.type})</td>
+        <tr key={product.product.productId} data-key={product.product.productId}>
+          <td>{product.product.name}</td>
           <td>${product.product.price}</td>
-          <td>
+          <td id="qty">
             {product.product.productQuantity}
           </td>
           <td>${product.product.price*product.product.productQuantity}</td>
-          <td><button onclick={deleteRow}>❌</button></td>
+          <td><button onClick={deleteProduct}>❌</button></td>
         </tr>)}
       </tbody>
     </table>

@@ -26,3 +26,13 @@ export const addProduct = createAction("cart/addProduct", (product) => {
     },
   };
 });
+export const deleteProductRow = createAction(
+  "cart/deleteProductRow",
+  (product) => {
+    return {
+      payload: {
+        product,
+      },
+    };
+  }
+);

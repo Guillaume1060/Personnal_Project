@@ -5,6 +5,7 @@ import {
   addProduct,
   resetCart,
   deleteTicketRow,
+  deleteProductRow,
 } from "../actions/cart.action";
 
 // Initial state for "cart"
@@ -39,15 +40,21 @@ const cartReducer = createReducer(initialState, (builder) => {
       }
       state.itemCount += parseInt(concertOrder.concert.ticketQuantity);
     })
+
+    //////////////////////
     .addCase(deleteTicketRow, (state, action) => {
-      const idConcert = action.payload.concert.concertId;
-      // TODO ne supprime pas la bonne ligne (idConcert est OK)
+      const idConcert = parseInt(action.payload.concert.concertId);
+      console.log(idConcert);
       const index = state.tickets.findIndex(
-        (item) => item.concert.concertId === idConcert
+        (ticket) => ticket.concert.ticketId === idConcert
       );
+      console.log(index);
       state.tickets.splice(index, 1);
+      state.itemCount = 0;
       // reduction du itemCount
     })
+    /////////////////////////////
+
     .addCase(addProduct, (state, action) => {
       const productOrder = action.payload;
       const index = state.products.findIndex(
@@ -62,6 +69,17 @@ const cartReducer = createReducer(initialState, (builder) => {
         state.products.push(productOrder);
       }
       state.itemCount += parseInt(productOrder.product.productQuantity);
+    })
+    .addCase(deleteProductRow, (state, action) => {
+      const idProduct = action.payload.product.productId;
+      const qty = action.payload.product.quantity;
+      console.log(qty);
+      const index = state.products.findIndex(
+        (product) => product.product.productId === parseInt(idProduct)
+      );
+      state.products.splice(index, 1);
+
+      // reduction du itemCount
     })
     .addCase(resetCart, (state, action) => {
       state.tickets = [];

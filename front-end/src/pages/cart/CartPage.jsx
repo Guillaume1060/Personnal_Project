@@ -32,24 +32,24 @@ const CartPage = () => {
     if (data.data?.name) {
         userName = (data.data?.name).toUpperCase() || null
     }
-    const checkoutHandler = () => {
-        console.log(data.data.id);
+
+    const paymentHandler = () => {
         if (!data.data.id) navigate('/login')
         if (data.data.id) {
             dispatch(displayPayment())
             dispatch(resetCart())
         }
     }
-
     
     const disconnect = () => {
         resetData()
-    axios.post('http://localhost:5000/auth/signout',{ withCredentials: true })
-    .then(res=>console.log('Disconnected'))
-    .catch(err=>console.log(err))
+        dispatch(resetCart())
+        axios.post('http://localhost:5000/auth/signout',{ withCredentials: true })
+        .then(res=>console.log('Disconnected'))
+        .catch(err=>console.log(err))
     }
-    return (
 
+    return (
         <div className={classes.page}>
             <NavBarLogin userName={userName} />
             {isShow && <Payment onCart={hideCartHandler} totalAmount={totalAmount} productCart={productCart} ticketCart={concertCartTickets} />}
@@ -57,11 +57,10 @@ const CartPage = () => {
                 <div className={classes.ctn}>
                     <p className={classes.ctn_title}>👋 {userName}</p>
                         <CartList/>
-                    {/* <input className={classes.input} type="text" id="input-text" placeholder="code here..."/> */}
                     <p className={classes.ctn_reduc}>A reduc code 🎉 ?</p>
                     <p className={classes.ctn_total}>Total Amount: {totalAmount} Euros</p>
                     <div className={classes.button}>
-                        <Button fn={checkoutHandler} variant="outlined" text='Proceed to payment'/>
+                        <Button fn={paymentHandler} variant="outlined" text='Proceed to payment'/>
                         <Button fn={()=>navigate('/')} text='Back'/>
                         <Button fn={disconnect} text='Disconnect'/>
                     </div>

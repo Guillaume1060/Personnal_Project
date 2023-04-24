@@ -4,7 +4,9 @@ import { CreateProductDto } from './dtos/create-product.dto';
 import { ApproveProductDto } from './dtos/approve-product.dto';
 import { AdminGuard } from 'src/_guards/admin.guard';
 import { UpdateProductDto } from './dtos/update-product.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Gestion des produits")
 @Controller('products')
 export class ProductsController {
     constructor(private productService: ProductsService){}

@@ -5,6 +5,9 @@ import { CurrentUser } from 'src/users/decorators/current-user.decorator';
 import { User } from 'src/users/user.entity';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { ProductOrderDto } from './dtos/product-order.dto';
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags("Gestion des commandes de produits")
 @Controller('products-orders')
 export class ProductsOrdersController {
     constructor(private ProductOrderService: ProductsOrdersService) {}

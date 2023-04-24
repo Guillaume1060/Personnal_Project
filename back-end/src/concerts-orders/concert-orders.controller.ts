@@ -5,7 +5,9 @@ import { CurrentUser } from 'src/users/decorators/current-user.decorator';
 import { User } from 'src/users/user.entity';
 import { ConcertOrderDto } from './dtos/concert-order.dto';
 import { CreateConcertOrderDto } from './dtos/create-concert-order.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Gestion des commandes de tickets de concert")
 @Controller('concert-orders')
 export class ConcertOrdersControllerr {
     constructor(private ConcertOrderService: ConcertOrdersService) {}
