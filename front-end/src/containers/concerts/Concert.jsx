@@ -4,7 +4,7 @@ import classes from './concert.module.scss'
 import useAxios from '../../hooks/use-axios';
 
 const Concert = () => {
-const { data, loading, error } = useAxios('http://localhost:5000/concerts');
+const { data, loading, error } = useAxios('http://localhost:5000/concerts', true);
 if (loading) {
     return <div>Loading...</div>;
 }

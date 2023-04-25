@@ -15,6 +15,7 @@ export class ProductsOrdersService {
         ) {}
 
     async create(ProductOrderDto : CreateProductOrderDto, user:User) {
+        console.log('yesy');
         const { products, quantity } = ProductOrderDto;
         const productOrder = this.repo.create(ProductOrderDto)
         const product = await this.repoProduct

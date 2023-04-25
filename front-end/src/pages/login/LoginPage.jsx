@@ -28,8 +28,8 @@ const HomeLogin = () => {
         <div className={classes.ctn}>
             <NavBarLogin/>
                 <div className={classes.form}>
-                    <h3>Have you already an account ?</h3>
-                    <FormControlLabel onChange={handleChange} control={<Switch defaultChecked />} label="Of Course!" />
+                    <h3 className={classes.title}>Have you already an account ?</h3>
+                    <FormControlLabel className={classes.test} onChange={handleChange} control={<Switch defaultChecked />} label="Of Course!" />
                 </div>
             <Outlet/>
         </div>

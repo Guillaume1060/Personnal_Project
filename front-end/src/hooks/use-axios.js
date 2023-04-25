@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useAxios(url) {
+function useAxios(url, credential) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function useAxios(url) {
     async function fetchData() {
       try {
         const response = await axios.get(url, {
-          withCredentials: true,
+          withCredentials: credential,
         });
         setData(response);
         setLoading(false);

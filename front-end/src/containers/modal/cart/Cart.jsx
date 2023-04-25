@@ -16,7 +16,6 @@ const concertCartTickets = useSelector(state=>state.cart.tickets)
 const productCart = useSelector(state=>state.cart.products)
 const itemCartQty = useSelector(state=>state.cart.itemCount)
 
-// const totalAmount = productCart.map(product=>{product.product.price*product.product.productQuantity})
 const concertCartItems = 
 <ul className={classes['cart-items']}>
     {concertCartTickets.map(concert=>
@@ -48,7 +47,7 @@ return (
                 {productCartItems}
             <div className={classes.total} >
                 <span className={classes.title}>Total Quantity</span>
-                <span className={classes.title}>{itemCartQty} pieces</span>
+                <span className={classes.title}>{itemCartQty} piece(s)</span>
             </div>
             <div className={classes.actions} >
                 <button onClick={props.onCart} className={classes['button--alt']}>Close</button>

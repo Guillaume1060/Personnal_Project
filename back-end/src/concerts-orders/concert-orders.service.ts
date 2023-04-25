@@ -17,11 +17,11 @@ export class ConcertOrdersService {
         const { concerts, quantity } = ConcertOrderDto;
         const concertOrder = this.repo.create(ConcertOrderDto)
         const concert = await this.repoConcert
-          .createQueryBuilder('concert')
-          .select(['concert.id', 'concert.price', 'concert.stockTickets'])
-          .where('concert.id = :id', { id: concerts })
-          .andWhere('concert.stockTickets >= :quantity', { quantity })
-          .getOne();
+        .createQueryBuilder('concert')
+        .select(['concert.id', 'concert.price', 'concert.stockTickets'])
+        .where('concert.id = :id', { id: concerts })
+        .andWhere('concert.stockTickets >= :quantity', { quantity })
+        .getOne();
         if (!concert) throw new UnauthorizedException('Not enough tickets in stock');
         const amount = concert.price * quantity;
         concertOrder.user = user

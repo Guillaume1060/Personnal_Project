@@ -6,6 +6,7 @@ import { User } from 'src/users/user.entity';
 import { ConcertOrderDto } from './dtos/concert-order.dto';
 import { CreateConcertOrderDto } from './dtos/create-concert-order.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { log } from 'console';
 
 @ApiTags("Gestion des commandes de tickets de concert")
 @Controller('concert-orders')
@@ -13,8 +14,9 @@ export class ConcertOrdersControllerr {
     constructor(private ConcertOrderService: ConcertOrdersService) {}
     
     @Post()
-    @Serialize(ConcertOrderDto)
+    // @Serialize(ConcertOrderDto)
     createConcertOrder(@Body() body:CreateConcertOrderDto,@CurrentUser() user:User) {
+        console.log('body');
         return this.ConcertOrderService.create(body,user);
     }
 

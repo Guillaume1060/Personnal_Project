@@ -12,10 +12,10 @@ const NavBarLogin = (props) => {
     const dispatch = useDispatch()
     //
     const navigate = useNavigate();
-    const [logged, setLogged] = useState("#015502")
+    const [logged, setLogged] = useState("#FFFFFF")
     const userName = props.userName
     useEffect(()=>{
-        if (userName) setLogged("#010002")
+        if (userName) setLogged("#000000")
     },[])
 
     const loginHandler = () => {
@@ -30,6 +30,8 @@ const NavBarLogin = (props) => {
                 <HashLink smooth to={'/'} className={classes.nav_box__list__title}>HOME</HashLink>
                 <HashLink smooth to={'/#about'} className={classes.nav_box__list__title}>ABOUT</HashLink>
                 <HashLink smooth to={'/#video'} className={classes.nav_box__list__title}>VIDEOS</HashLink>
+                <HashLink smooth to={'/#concert'} className={classes.nav_box__list__title}>CONCERTS</HashLink>
+                <HashLink smooth to={'/#store'} className={classes.nav_box__list__title}>STORE</HashLink>
                 <HashLink smooth to={'/#footer'} className={classes.nav_box__list__title}>SUSCRIBE</HashLink>
             </div >
             <div class={classes.cart_nav__icon_box}>

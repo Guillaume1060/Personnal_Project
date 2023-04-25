@@ -47,6 +47,8 @@ export class UsersService {
 
     async updateAccountBalanceByUser(user: User, amount:string) {
         const value = parseInt(amount)
+        // TODO update error
+        if (user.money<value) throw new NotFoundException('not enough money')
         user.money -= value
         return this.repo.save(user)
     }

@@ -9,22 +9,20 @@ const CartList =(props)=> {
   const concertCartTickets = useSelector(state=>state.cart.tickets)
   const productCart = useSelector(state=>state.cart.products)
 
-  const deleteConcertRow = (e) => {
+  const deleteConcertRow = (e, qty) => {
     const idConcert = e.target.closest("tr").dataset.key;
-    // const qty = e.target.closest("tr").dataset.key;
     const payLoad = {
       concertId : idConcert,
-      // quantity : qty
+      quantity : qty
     }
     dispatch(deleteTicketRow(payLoad))
     // ici update du state
   }
-  const deleteProduct = (e) => {
+  const deleteProduct = (e,qty) => {
     const idProduct = e.target.closest("tr").dataset.key;
-    // const qty = e.target.closest("#qty")
     const payLoad = {
       productId : idProduct,
-      // quantity : qty
+      quantity : qty
     }
     dispatch(deleteProductRow(payLoad))
     // ici update du state
@@ -51,7 +49,7 @@ const CartList =(props)=> {
             {concert.concert.ticketQuantity}
           </td>
           <td>${concert.concert.price*concert.concert.ticketQuantity}</td>
-          <td><button onClick={deleteConcertRow}>❌</button></td>
+          <td><button onClick={(e)=>deleteConcertRow(e,concert.concert.ticketQuantity)}>❌</button></td>
         </tr>)}
       </tbody>
     </table>
@@ -71,11 +69,11 @@ const CartList =(props)=> {
         <tr key={product.product.productId} data-key={product.product.productId}>
           <td>{product.product.name}</td>
           <td>${product.product.price}</td>
-          <td id="qty">
+          <td>
             {product.product.productQuantity}
           </td>
           <td>${product.product.price*product.product.productQuantity}</td>
-          <td><button onClick={deleteProduct}>❌</button></td>
+          <td><button onClick={(e)=>deleteProduct(e,product.product.productQuantity)}>❌</button></td>
         </tr>)}
       </tbody>
     </table>

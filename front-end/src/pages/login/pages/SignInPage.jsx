@@ -24,7 +24,8 @@ export default function SignIn() {
   axios.post('http://localhost:5000/auth/signin', {
         email: data.get('email'),
         password: data.get('password')},
-        {withCredentials: true})
+        {withCredentials: true}
+        )
     .then(response => {
       navigate('/cart');
     })

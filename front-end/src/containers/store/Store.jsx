@@ -4,7 +4,7 @@ import ProductBox from './ProductBox';
 import useAxios from '../../hooks/use-axios';
 
 const Store = () => {
-    const { data, loading, error } = useAxios('http://localhost:5000/products');
+    const { data, loading, error } = useAxios('http://localhost:5000/products',true);
     if (loading) {
         return <div>Loading...</div>;
       }

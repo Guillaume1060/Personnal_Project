@@ -44,13 +44,12 @@ const cartReducer = createReducer(initialState, (builder) => {
     //////////////////////
     .addCase(deleteTicketRow, (state, action) => {
       const idConcert = parseInt(action.payload.concert.concertId);
-      console.log(idConcert);
       const index = state.tickets.findIndex(
         (ticket) => ticket.concert.ticketId === idConcert
       );
-      console.log(index);
       state.tickets.splice(index, 1);
-      state.itemCount = 0;
+      const qty = parseInt(action.payload.concert.quantity);
+      state.itemCount -= qty;
       // reduction du itemCount
     })
     /////////////////////////////
@@ -72,12 +71,12 @@ const cartReducer = createReducer(initialState, (builder) => {
     })
     .addCase(deleteProductRow, (state, action) => {
       const idProduct = action.payload.product.productId;
-      const qty = action.payload.product.quantity;
-      console.log(qty);
       const index = state.products.findIndex(
         (product) => product.product.productId === parseInt(idProduct)
       );
       state.products.splice(index, 1);
+      const qty = parseInt(action.payload.product.quantity);
+      state.itemCount -= qty;
 
       // reduction du itemCount
     })
