@@ -1,4 +1,3 @@
-// import useAxios from "../../hooks/use-axios";
 import { Outlet } from "react-router-dom";
 import NavBarLogin from "../../containers/nav/NavBar_log";
 import classes from './loginPage.module.scss'
@@ -16,12 +15,6 @@ const HomeLogin = () => {
     setAccount(!account);
     if (account)navigate('');
     if (!account)navigate('signup');
-
-    // AVOIR SI NECESSAIRE CI DESSOUS
-    // const { data, loading, error, postdata } = useAxios('http://localhost:5000/auth/whoami');
-    // if (loading) return <div>Loading...</div>;
-    // if (error) return <div>Error: {error.message}</div>;
-    // if (data.data.id) navigate('/') // ici retour à la page user car connecté
 }
 
     return (

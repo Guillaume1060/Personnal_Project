@@ -4,16 +4,12 @@ import { scrypt as _scrypt, randomBytes } from "crypto";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dtos/create-user.dto";
 import { AuthUserDto } from "./dtos/auth-user.dto";
-// import { JwtService } from "@nestjs/jwt";
-// import { JWT_SECRET } from "./constant";
 
 const scrypt = promisify(_scrypt);
-
 @Injectable()
 export class AuthService {
     constructor(
         private usersService: UsersService,
-        // private jwtService: JwtService,
         ) {}
 
     async signUp(newUser : CreateUserDto) {
@@ -30,12 +26,6 @@ export class AuthService {
         // 3.create new user and save it
         const user = await this.usersService.create(newUser, result)
         return user
-
-        // token part
-        // const payload = { username: user.name, sub: user.id}
-        // return {
-        //     access_token : await this.jwtService.signAsync(payload,{ secret : JWT_SECRET})
-        // }
     }
 
     async signIn(checkUser : AuthUserDto) {
@@ -45,11 +35,6 @@ export class AuthService {
         const hash = await scrypt(checkUser.password,salt,32) as Buffer
         if (hash.toString('hex') !== storedhash) throw new BadRequestException('bad password')
         return user
-        // token part
-        // const payload = { username: user.name, sub: user.id}
-        // return {
-        //     access_token : await this.jwtService.signAsync(payload,{ secret : JWT_SECRET})
-        // }
     }
 }
 

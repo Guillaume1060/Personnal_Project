@@ -5,7 +5,6 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { ConcertsOrder } from 'src/concerts-orders/concert-orders.entity';
 import { ProductsOrder } from 'src/products-orders/product-orders.entity';
-import { log } from 'console';
 
 @Injectable()
 export class UsersService {
@@ -47,7 +46,6 @@ export class UsersService {
 
     async updateAccountBalanceByUser(user: User, amount:string) {
         const value = parseInt(amount)
-        // TODO update error
         if (user.money<value) throw new NotFoundException('not enough money')
         user.money -= value
         return this.repo.save(user)

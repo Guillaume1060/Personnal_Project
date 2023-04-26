@@ -1,7 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { GetEstimateDto } from 'src/products/dtos/get-estimate.dto';
-import { Product } from 'src/products/product.entity';
 import { Repository } from 'typeorm';
 import { CreateConcertDto } from './dtos/create-concert.dto';
 import { Concert } from './concert.entity';
@@ -41,19 +39,4 @@ export class ConcertsService {
         concert.salesOpen = false
         return this.repo.save(concert)
     }
-
-    // createEstimate({name, price, stock}:GetEstimateDto) {
-    //     return this.repo
-    //     .createQueryBuilder()
-    //     .select('*')
-    //     // .select('AVG(price','price')
-    //     .where('name = :name',{name})
-    //     // .andWhere('name=:name',{name}) // ici second filtre (andWhere, not where again)
-    //     .andWhere('price - :price BETWEEN -5 AND 5',{price})
-    //     // .andWhere('approved IS TRUE')
-    //     .orderBy('stock - :stock','DESC').setParameters({stock}) // methode differente pour le tri
-    //     .limit(2)
-    //     // .getRawOne()
-    //     .getRawMany()        
-    // }
 }

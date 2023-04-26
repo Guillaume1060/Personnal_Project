@@ -7,8 +7,6 @@ import SignUp from "../pages/login/pages/SignUpPage";
 
 
 // import NotFound from "../pages/error/not-found-page";
-
-
 const appRoute = [
   {
     path: "",
@@ -32,9 +30,6 @@ const appRoute = [
       },
     ]
   },
-
-
-
 // Ci dessous pour gestion des autres routes (donc erreur)
     // path: "*",
     // element: <NotFound />, // TODO ajouter la 404

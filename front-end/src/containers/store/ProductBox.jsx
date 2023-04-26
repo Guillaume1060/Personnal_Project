@@ -14,7 +14,6 @@ const ProductBox = (props) => {
 
     const submitHandler = useCallback((e) => {
         e.preventDefault();
-        console.log(productQuantityRef.current.value);
         const productQuantity = productQuantityRef.current.value;
         const payLoad = {
             productId : props.id,

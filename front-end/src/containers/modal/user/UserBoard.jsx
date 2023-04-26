@@ -7,7 +7,6 @@ import { resetCart } from '../../../store/actions/cart.action';
 import { displayUser } from '../../../store/actions/user.action';
 import { useDispatch } from 'react-redux';
 import classes from './userBoard.module.scss'
-import Button from '../../../composants/button/Button';
 
 const UserBoard = (props) => {
     const dispatch = useDispatch()

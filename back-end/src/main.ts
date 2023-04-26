@@ -24,16 +24,13 @@ async function bootstrap() {
   );
   const configSwagger = new DocumentBuilder()
   .setTitle("Api TFE")
-  .setDescription("BLA BLA BLA")
+  .setDescription("Admin management of the API")
   .setVersion("0.0.1")
-	.addBearerAuth(
-    {
-      type: 'http',
-      name: 'Bearer',
-      bearerFormat: 'Bearer',
-      in: 'Header',
-      scheme: 'Bearer',
-    })
+  .addCookieAuth('session', {
+    type: 'http',
+    scheme: 'bearer',
+    bearerFormat: 'JWT',
+  })
   .build()
 
   const pageSwagger = SwaggerModule.createDocument(app, configSwagger)

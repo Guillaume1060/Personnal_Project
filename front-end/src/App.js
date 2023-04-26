@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        {/* <NavBar /> */}
         <main className={classes.parent}>{routes}</main>
       </Provider>
     </>

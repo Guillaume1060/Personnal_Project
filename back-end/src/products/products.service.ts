@@ -4,7 +4,6 @@ import { Product } from './product.entity';
 import { Repository } from 'typeorm';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { GetEstimateDto } from './dtos/get-estimate.dto';
-import { log } from 'console';
 
 @Injectable()
 export class ProductsService {

@@ -9,7 +9,6 @@ import { ProductsOrdersModule } from './products-orders/products-orders.module';
 import { ConcertsModule } from './concerts/concerts.module';
 import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
 import { Concert } from './concerts/concert.entity';
-import * as dotenv from 'dotenv';
 import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
 
 @Module({
@@ -33,7 +32,7 @@ import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
         validateConnection : false,
         trustServerCertificate : true
       },
-      // logging : "all"
+
     }),
   UsersModule, ProductsModule, ProductsOrdersModule,ConcertsModule,ConcertOrdersModule],
   controllers: [], 
