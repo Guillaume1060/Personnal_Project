@@ -49,7 +49,6 @@ export class ProductsOrdersService {
         // 10. WE SAVE THE PRODUCTORDER IN OUR DB AND SEND IT BACK TO THE CONTROLLER
         return this.repo.save(productOrder)
     }
-
     async findAllById(user: User) {
         let allProductOrdersByUser = await this.repo.find({ where: { user:{id:user.id} },relations: ['products'] })
         return allProductOrdersByUser
