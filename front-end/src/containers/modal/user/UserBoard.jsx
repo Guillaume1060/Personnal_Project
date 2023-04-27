@@ -11,7 +11,7 @@ import classes from './userBoard.module.scss'
 const UserBoard = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    const { data, loading, error,postData,resetData } = useAxios('http://localhost:5000/auth/orders',true);
+    const { data, loading, error, resetData } = useAxios('http://localhost:5000/auth/orders',true);
     if (loading) return <div>Loading...</div>;
     if (error) return <div></div>;
     const productOrders = data.data.productsOrders
@@ -33,7 +33,9 @@ return (
             <p className={classes.title_subTitle}>PRODUCT</p>
                 {productOrders.map(item=>  
                     <>
-                        <p className={classes.title_subTitle_1}>{item.quantity} x {item.products.name}(Amount: {item.amount} Euros)</p>
+                        <p className={classes.title_subTitle_1}>{item.quantity} x 
+                        {/* {item.products.name} */}
+                        (Amount: {item.amount} Euros)</p>
                     </>
                 )}
             <p className={classes.title_subTitle}>CONCERT</p>

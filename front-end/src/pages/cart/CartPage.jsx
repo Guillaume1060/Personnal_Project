@@ -48,7 +48,7 @@ const CartPage = () => {
                     axios.post('http://localhost:5000/products-orders',
                     {
                         quantity:parseInt(item.product.productQuantity),
-                        products:item.product.productId
+                        productID:item.product.productId
                     },{ withCredentials: true })
                     .then(res=>console.log('order Product validated'))
                     .catch(err=>console.log('ici?',err))
