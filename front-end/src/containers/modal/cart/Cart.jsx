@@ -34,7 +34,6 @@ const productCartItems =
         <li>
             <p className={classes.art}>{product.product.name} x {product.product.productQuantity} </p>
             <p className={classes.art_2}>{product.product.price} euros</p>
-            {/* <p className={classes.art_3}>{product.product.productQuantity} pces</p> */}
             <p className={classes.art_1}>Total: {product.product.price*product.product.productQuantity} euros</p>
         </li>)}
     </ul>

@@ -12,7 +12,6 @@ const ModalOverlay = (props) => {
     </div>
   );
 };
-// TODO ajout useState pour gestion du modal
 const portalElement = document.getElementById("overlays");
 
 const Modal = (props) => {

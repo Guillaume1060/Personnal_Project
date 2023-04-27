@@ -20,5 +20,4 @@ const ConcertBox = (props) => {
         </div>
     )
 }
-
 export default ConcertBox

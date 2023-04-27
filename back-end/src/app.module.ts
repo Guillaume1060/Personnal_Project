@@ -10,14 +10,15 @@ import { ConcertsModule } from './concerts/concerts.module';
 import { ConcertOrdersModule } from './concerts-orders/concert-order.module';
 import { Concert } from './concerts/concert.entity';
 import { ConcertsOrder } from './concerts-orders/concert-orders.entity';
-
+import { config } from "dotenv"
+config()
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type : "mssql",
       host : "localhost",
       port : 1433,
-      username : 'guillaume',
+      username : 'Amine',
       // HOME
       password : 'test1234',
       database : "digital_TFE",
