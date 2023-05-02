@@ -29,7 +29,6 @@ async function bootstrap() {
   .addCookieAuth('session', {
     type: 'http',
     scheme: 'bearer',
-    bearerFormat: 'JWT',
   })
   .build()
 

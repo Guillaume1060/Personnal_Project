@@ -14,8 +14,6 @@ export class ProductsOrdersService {
         // @InjectRepository(User) private repoUser: Repository<User>
         ) {}
 
-
-        //TODO code to present
     // ICI EST LE SERVICE DE LA CREATION DANS LA TABLE PRODUCT-ORDER
     async create(ProductOrderDto : CreateProductOrderDto, user:User) {
         // 1. GET INFO FROM OUR REQUEST BODY (ProductID & QTY)

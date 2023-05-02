@@ -6,12 +6,6 @@ import { useState,  } from 'react';
 
 const Payment = (props) => {
 const [validated,setValidated] = useState(true)
-
-// TODO Gestion quand out of stock ()
-// Validadtion or not du caddy
-    // if (paymentValidated){
-    //     setValidated(true);
-    // }
 const paymentOK = 
 <div className={classes.modal} >
 <h3>Congratulations🎉, ORDER validated!</h3>
