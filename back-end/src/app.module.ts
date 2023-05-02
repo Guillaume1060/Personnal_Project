@@ -18,14 +18,9 @@ config()
       type : "mssql",
       host : "localhost",
       port : 1433,
-      username : 'Amine',
-      // HOME
-      password : 'test1234',
-      database : "digital_TFE",
-      
-      // SCHOOL
-      // password : "160280", 
-      // database : "TFE",
+      username : process.env.USERNAME,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DATABASE,
       entities : [User, Product,ProductsOrder,Concert, ConcertsOrder], 
       autoLoadEntities : true,
       synchronize : true,
