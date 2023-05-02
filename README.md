@@ -27,5 +27,3 @@ Singer webpage with ticket concerts & goodies sales stored in the DB.
 - Typeorm
 - cookie-session
 - Swagger
-
-## Thank you
